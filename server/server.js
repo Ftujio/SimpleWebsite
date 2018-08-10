@@ -4,7 +4,7 @@ const path = require('path');
 const app = express();
 const server = http.createServer(app);
 
-// app.use(express.static(path.join(__dirname, '../public')));
+app.use('/', express.static(path.join(__dirname, '../public')));
 
 app.use('/api', setCors, checkApiToken);
 
@@ -13,7 +13,8 @@ app.get('/api', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/index.html'));
+  // res.sendFile(path.join(__dirname, '../public/dist/simple-website/index.html'));
+  res.send('U HELLA GAY');
 });
 
 server.listen(3000, () => {
